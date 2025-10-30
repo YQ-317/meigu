@@ -1,11 +1,19 @@
 <?php
-// 通过环境变量配置数据库
+// 通过环境变量配置数据库（优先使用环境变量，未配置则回退到 Railway 外网连接参数）
 $db_host = getenv('DB_HOST');
 $db_name = getenv('DB_NAME');
 $db_user = getenv('DB_USER');
 $db_pass = getenv('DB_PASS');
+$db_port = getenv('DB_PORT');
 
-$dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8";
+// 回退到你的 Railway 配置（外网可访问）
+if (!$db_host) { $db_host = 'yamabiko.proxy.rlwy.net'; }
+if (!$db_port) { $db_port = '58636'; }
+if (!$db_name) { $db_name = 'railway'; }
+if (!$db_user) { $db_user = 'root'; }
+if (!$db_pass) { $db_pass = 'exGjRufguFHcjRrTGWhqkhnYwUrbJPSj'; }
+
+$dsn = "mysql:host=$db_host;port=$db_port;dbname=$db_name;charset=utf8";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 ];

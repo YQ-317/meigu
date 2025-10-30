@@ -45,7 +45,7 @@ class DatabaseAPI {
     // 获取文章列表
     async getArticles() {
         // 使用正确的API端点
-        const response = await fetch('api/get-data.php?type=articles');
+        const response = await fetch('https://meigu-1.onrender.com/get-data.php?type=articles');
         const result = await response.json();
         if (result.success && result.data && result.data.articles) {
             return { success: true, data: result.data.articles };
@@ -71,7 +71,7 @@ class DatabaseAPI {
     // 获取新闻列表
     async getNews() {
         // 使用正确的API端点
-        const response = await fetch('api/get-data.php?type=news');
+        const response = await fetch('https://meigu-1.onrender.com/get-data.php?type=news');
         const result = await response.json();
         if (result.success && result.data && result.data.news) {
             return { success: true, data: result.data.news };

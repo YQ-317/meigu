@@ -30,7 +30,7 @@ async function loadNewsData() {
 
     try {
         // 首先尝试从数据库API获取数据
-        const response = await fetch('api/get-data.php?type=news');
+        const response = await fetch('https://meigu-1.onrender.com/get-data.php?type=news');
         const result = await response.json();
 
         if (result.success && result.data && result.data.news) {
@@ -60,7 +60,7 @@ async function loadNewsData() {
         if (error.name === 'QuotaExceededError') {
             console.warn('⚠️ localStorage空间不足，直接使用API数据，不缓存');
             // 尝试重新获取数据并只显示，不保存
-            const response = await fetch('api/get-data.php?type=news');
+            const response = await fetch('https://meigu-1.onrender.com/get-data.php?type=news');
             const result = await response.json();
             if (result.success && result.data && result.data.news) {
                 renderNews(result.data.news);

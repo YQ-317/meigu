@@ -2580,7 +2580,7 @@
         // 从API加载数据
         async function loadData() {
             try {
-                const response = await fetch('api/get-data.php?type=all');
+                const response = await fetch('https://meigu-1.onrender.com/get-data.php?type=all');
                 const result = await response.json();
 
                 if (result.success && result.data) {
@@ -3511,7 +3511,7 @@
                 console.log('开始加载活动数据...');
 
                 // 从API获取数据
-                const response = await fetch('api/get-data.php?type=all');
+                const response = await fetch('https://meigu-1.onrender.com/get-data.php?type=all');
                 console.log('API响应状态:', response.status);
 
                 if (!response.ok) {

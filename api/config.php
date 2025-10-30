@@ -1,4 +1,13 @@
 <?php
+// CORS 允许跨域访问（Vercel 前端 -> Render 后端）
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
 // 通过环境变量配置数据库（优先使用环境变量，未配置则回退到 Railway 外网连接参数）
 $db_host = getenv('DB_HOST');
 $db_name = getenv('DB_NAME');
@@ -16,6 +25,7 @@ if (!$db_pass) { $db_pass = 'exGjRufguFHcjRrTGWhqkhnYwUrbJPSj'; }
 $dsn = "mysql:host=$db_host;port=$db_port;dbname=$db_name;charset=utf8";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ];
 
 try {
@@ -24,6 +34,21 @@ try {
     http_response_code(500);
     echo json_encode(['error' => '数据库连接失败: ' . $e->getMessage()]);
     exit;
+}
+
+// 提供与现有代码兼容的简单 Database 封装
+class Database {
+    private PDO $pdo;
+    public function __construct() {
+        global $pdo; // 复用上面已建立的连接
+        $this->pdo = $pdo;
+    }
+    public function getConnection(): PDO {
+        return $this->pdo;
+    }
+    public function closeConnection(): void {
+        $this->pdo = null;
+    }
 }
 
 // 响应函数

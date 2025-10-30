@@ -1,0 +1,8 @@
+{
+    "name": "meigu/api",
+    "description": "美谷 PHP API 部署配置",
+    "require": {
+        "php": ">=7.2",
+        "ext-pdo": "*"
+    }
+}

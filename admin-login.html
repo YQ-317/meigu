@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内部员工登录 - 东方美谷韩国中心</title>
+    <link rel="icon" type="image/png" href="images/logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 简约登录页面样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: #f5f6fa;
+            color: #333;
+        }
+
+        .login-container {
+            min-height: 100vh;
+            background: #f5f6fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .login-info {
+            text-align: left;
+            background: transparent;
+        }
+
+        .login-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            background: transparent;
+            text-shadow: none;
+        }
+
+        .login-info .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            background: transparent;
+        }
+
+        .features-list {
+            list-style: none;
+            background: transparent;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #666;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .features-list i {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            color: #667eea;
+            width: 20px;
+            background: transparent;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-logo i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .login-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            background: transparent;
+            text-shadow: none;
+        }
+
+        .login-subtitle {
+            color: #666;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        .login-form {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: transparent;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+        }
+
+
+        .login-btn {
+            width: 100%;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #5a6fd8;
+        }
+
+        .login-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .login-footer p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 5px 0;
+            background: transparent;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: white;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .back-home:hover {
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .back-home i {
+            margin-right: 8px;
+        }
+
+        /* 通知样式 */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 4px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            max-width: 300px;
+        }
+
+        .notification.success {
+            background: #28a745;
+        }
+
+        .notification.error {
+            background: #dc3545;
+        }
+
+        .notification.warning {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .notification.info {
+            background: #17a2b8;
+        }
+
+        /* 加载动画 */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .login-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .login-container {
+                padding: 15px;
+            }
+
+            .login-info {
+                text-align: center;
+                order: 2;
+            }
+
+            .login-info h1 {
+                font-size: 2rem;
+            }
+
+            .login-info .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .login-card {
+                padding: 30px;
+                order: 1;
+            }
+
+            .login-title {
+                font-size: 1.5rem;
+            }
+
+            .login-logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            .login-logo i {
+                font-size: 2rem;
+            }
+
+            .back-home {
+                top: 20px;
+                left: 20px;
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .notification {
+                top: 15px;
+                right: 15px;
+                left: 15px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <!-- 返回首页按钮 -->
+        <a href="index.html" class="back-home">
+            <i class="fas fa-home"></i>
+            返回首页
+        </a>
+
+        <!-- 登录内容 -->
+        <div class="login-wrapper">
+            <!-- 左侧信息介绍 -->
+            <div class="login-info">
+                <h1>东方美谷韩国中心</h1>
+                <p class="subtitle">连接中韩美妆产业的桥梁</p>
+
+                <ul class="features-list">
+                    <li>
+                        <i class="fas fa-file-alt"></i>
+                        <span>文章管理 - 发布和管理公众号内容</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-newspaper"></i>
+                        <span>新闻管理 - 发布活动新闻和公司动态</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chart-line"></i>
+                        <span>数据统计 - 实时查看内容数据和访问统计</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-sync-alt"></i>
+                        <span>实时同步 - 内容变更自动同步到前台页面</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 右侧登录卡片 -->
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-logo">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h1 class="login-title">内部员工登录</h1>
+                    <p class="login-subtitle">东方美谷韩国中心 - 管理系统</p>
+                </div>
+
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                    </div>
+
+                    <button type="submit" class="login-btn" id="loginBtn">
+                        <span id="loginText">登录</span>
+                        <span id="loginLoading" style="display: none;">
+                            <span class="loading"></span> 登录中...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            // 设置默认焦点
+            const usernameInput = document.getElementById('username');
+            usernameInput.focus();
+        });
+
+        // 登录表单提交
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            // 显示加载状态（优化：减少不必要的DOM操作）
+            const loginBtn = document.getElementById('loginBtn');
+            const loginText = document.getElementById('loginText');
+            const loginLoading = document.getElementById('loginLoading');
+
+            loginBtn.disabled = true;
+            loginText.style.display = 'none';
+            loginLoading.style.display = 'inline-block';
+
+            try {
+                // 优先尝试数据库验证（增加超时控制）
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000); // 5秒超时
+
+                const response = await fetch('api/auth.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        action: 'login',
+                        username: username,
+                        password: password
+                    }),
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // 数据库验证成功
+                    const currentUser = {
+                        id: data.data.id,
+                        username: data.data.username,
+                        role: data.data.role,
+                        avatar: data.data.avatar
+                    };
+
+                    // 登录成功，快速保存数据并跳转
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    localStorage.setItem('adminUsername', username);
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    localStorage.setItem('loginTime', new Date().toISOString());
+                    localStorage.setItem('useDatabase', 'true');
+
+                    // 立即跳转，不显示通知，减少延迟
+                    window.location.href = 'admin.html';
+                } else {
+                    throw new Error(data.message || '登录失败');
+                }
+            } catch (error) {
+                if (typeof timeoutId !== 'undefined') {
+                    clearTimeout(timeoutId);
+                }
+                console.log('数据库登录失败，尝试本地验证...', error);
+
+                // 数据库验证失败，尝试本地验证（兼容模式）
+                if (validateLogin(username, password)) {
+                    const users = {
+                        'admin': { password: 'admin123', role: 'admin', avatar: 'A' },
+                        'super': { password: 'super123', role: 'super-admin', avatar: 'S' },
+                        'user': { password: 'user123', role: 'user', avatar: 'U' }
+                    };
+
+                    const currentUser = {
+                        username: username,
+                        role: users[username].role,
+                        avatar: users[username].avatar
+                    };
+
+                    // 登录成功
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    localStorage.setItem('adminUsername', username);
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    localStorage.setItem('loginTime', new Date().toISOString());
+                    localStorage.setItem('useLocalStorage', 'true');
+
+                    // 立即跳转，不显示通知
+                    window.location.href = 'admin.html';
+                } else {
+                    // 登录失败，恢复按钮状态
+                    loginBtn.disabled = false;
+                    loginText.style.display = 'inline-block';
+                    loginLoading.style.display = 'none';
+
+                    showNotification('用户名或密码错误！', 'error');
+                    document.getElementById('password').value = '';
+                    document.getElementById('password').focus();
+                }
+            }
+        });
+
+        // 验证登录信息
+        function validateLogin(username, password) {
+            // 用户权限配置（与admin.html保持一致）
+            const users = {
+                'admin': { password: 'admin123', role: 'admin' },
+                'super': { password: 'super123', role: 'super-admin' },
+                'user': { password: 'user123', role: 'user' }
+            };
+
+            return users[username] && users[username].password === password;
+        }
+
+        // 显示加载状态
+        function showLoading(show) {
+            const loginBtn = document.getElementById('loginBtn');
+            const loginText = document.getElementById('loginText');
+            const loginLoading = document.getElementById('loginLoading');
+
+            if (show) {
+                loginBtn.disabled = true;
+                loginText.style.display = 'none';
+                loginLoading.style.display = 'inline';
+            } else {
+                loginBtn.disabled = false;
+                loginText.style.display = 'inline';
+                loginLoading.style.display = 'none';
+            }
+        }
+
+        // 显示通知
+        function showNotification(message, type = 'info') {
+            // 移除现有通知
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // 创建新通知
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            // 3秒后自动移除
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 3000);
+        }
+
+        // 键盘事件处理
+        document.addEventListener('keydown', function (e) {
+            // Enter键提交表单
+            if (e.key === 'Enter' && !document.getElementById('loginBtn').disabled) {
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
+
+            // ESC键清空表单
+            if (e.key === 'Escape') {
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('username').focus();
+            }
+        });
+    </script>
+</body>
+
+</html>

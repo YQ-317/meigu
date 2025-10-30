@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合作单位 - 东方美谷韩国中心</title>
+    <link rel="icon" type="image/png" href="images/logo.jpg">
+    <link rel="shortcut icon" type="image/png" href="images/logo.jpg">
+    <link rel="apple-touch-icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-image">
+                        <img src="images/logo.jpg" alt="东方美谷" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">东方美谷</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">关于我们</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#activities" class="nav-link">活动新闻</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#articles" class="nav-link">公众号</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">联系我们</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- 折叠导航栏 -->
+            <div class="dropdown-menu">
+                <button class="dropdown-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="services.html" class="dropdown-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>服务</span>
+                    </a>
+                    <a href="brands.html" class="dropdown-item">
+                        <i class="fas fa-star"></i>
+                        <span>合作品牌</span>
+                    </a>
+                    <a href="partners.html" class="dropdown-item">
+                        <i class="fas fa-handshake"></i>
+                        <span>合作单位</span>
+                    </a>
+                    <a href="admin-login.html" class="dropdown-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>内部员工</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">首页</a>
+                <span class="separator">></span>
+                <span class="current">合作单位</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 合作单位页面 -->
+    <main class="partners-page">
+        <div class="container">
+            <h1 class="page-title">合作单位</h1>
+            <p class="page-subtitle">与行业领先机构建立战略合作关系</p>
+
+            <!-- 合作单位分类 -->
+            <div class="partner-categories">
+                <button class="category-btn active" data-category="all">全部单位</button>
+                <button class="category-btn" data-category="government">政府机构</button>
+                <button class="category-btn" data-category="academic">学术机构</button>
+                <button class="category-btn" data-category="industry">行业协会</button>
+                <button class="category-btn" data-category="enterprise">企业单位</button>
+            </div>
+
+            <!-- 合作单位展示 -->
+            <div class="partners-grid">
+                <div class="partner-card" data-category="government">
+                    <div class="partner-logo">
+                        <img src="images/wechat-qr.jpg" alt="政府机构">
+                    </div>
+                    <div class="partner-info">
+                        <h3>上海市奉贤区人民政府</h3>
+                        <p>与区政府建立战略合作关系，共同推进东方美谷产业发展，打造国际一流的美妆产业基地。</p>
+                        <div class="partner-tags">
+                            <span class="tag">政府支持</span>
+                            <span class="tag">产业政策</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card" data-category="academic">
+                    <div class="partner-logo">
+                        <img src="images/wechat-qr.jpg" alt="学术机构">
+                    </div>
+                    <div class="partner-info">
+                        <h3>复旦大学化学系</h3>
+                        <p>与复旦大学建立产学研合作关系，共同开展美妆产品研发和技术创新，推动行业技术进步。</p>
+                        <div class="partner-tags">
+                            <span class="tag">产学研合作</span>
+                            <span class="tag">技术研发</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card" data-category="industry">
+                    <div class="partner-logo">
+                        <img src="images/wechat-qr.jpg" alt="行业协会">
+                    </div>
+                    <div class="partner-info">
+                        <h3>中国化妆品工业协会</h3>
+                        <p>与中国化妆品工业协会建立合作关系，参与行业标准制定，推动行业规范化发展。</p>
+                        <div class="partner-tags">
+                            <span class="tag">行业标准</span>
+                            <span class="tag">规范发展</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card" data-category="enterprise">
+                    <div class="partner-logo">
+                        <img src="images/wechat-qr.jpg" alt="企业单位">
+                    </div>
+                    <div class="partner-info">
+                        <h3>韩国化妆品协会</h3>
+                        <p>与韩国化妆品协会建立战略合作关系，促进中韩两国美妆产业的交流与合作。</p>
+                        <div class="partner-tags">
+                            <span class="tag">国际合作</span>
+                            <span class="tag">产业交流</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card" data-category="academic">
+                    <div class="partner-logo">
+                        <img src="images/wechat-qr.jpg" alt="学术机构">
+                    </div>
+                    <div class="partner-info">
+                        <h3>韩国首尔大学</h3>
+                        <p>与首尔大学建立学术交流合作关系，共同开展美妆科技研究，培养专业人才。</p>
+                        <div class="partner-tags">
+                            <span class="tag">学术交流</span>
+                            <span class="tag">人才培养</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partner-card" data-category="industry">
+                    <div class="partner-logo">
+                        <img src="images/wechat-qr.jpg" alt="行业协会">
+                    </div>
+                    <div class="partner-info">
+                        <h3>上海市美容美发行业协会</h3>
+                        <p>与上海市美容美发行业协会合作，共同推动美容行业的发展和技术进步。</p>
+                        <div class="partner-tags">
+                            <span class="tag">行业合作</span>
+                            <span class="tag">技术推广</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-section">
+                    <h3>联系我们</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>公司地址</h4>
+                                <p>上海贤道培训学校有限公司</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>联系电话</h4>
+                                <p>021-1234-5678<br>400-888-9999</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>邮箱地址</h4>
+                                <p>854235552@qq.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qr-section">
+                    <h3>关注我们</h3>
+                    <div class="qr-codes">
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="images/wechat-qr.jpg" alt="公众号二维码">
+                            </div>
+                            <p>微信公众号</p>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="images/wechat-qr.jpg" alt="微信群二维码">
+                            </div>
+                            <p>微信群</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 上海贤道培训学校有限公司. 保留所有权利.</p>
+                <p>沪ICP备12345678号 | 沪公网安备31012000000000号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="partners.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动新闻 - 东方美谷韩国中心</title>
+    <link rel="icon" type="image/png" href="images/logo.jpg">
+    <link rel="shortcut icon" type="image/png" href="images/logo.jpg">
+    <link rel="apple-touch-icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pagination-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-image">
+                        <img src="images/logo.jpg" alt="东方美谷" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">东方美谷</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html#about" class="nav-link">关于我们</a></li>
+                <li class="nav-item"><a href="index.html#activities" class="nav-link">活动新闻</a></li>
+                <li class="nav-item"><a href="index.html#articles" class="nav-link">公众号</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">联系我们</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">首页</a>
+                <span class="separator">></span>
+                <span class="current">活动新闻</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 新闻列表页面（纯列表，由JS渲染后台已添加的新闻） -->
+    <main class="news-detail-page">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title-group">
+                    <h1 class="page-title">活动新闻</h1>
+                    <p class="page-subtitle">查看后台已发布的所有新闻</p>
+                </div>
+                <a href="index.html" class="btn-back-home">
+                    <i class="fas fa-home"></i>
+                    <span>返回首页</span>
+                </a>
+            </div>
+
+            <!-- 新闻列表：仅由JS渲染 homeData.news，不注入任何默认示例 -->
+            <div class="news-list" id="news-list"></div>
+
+            <!-- 分页控件 -->
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-section">
+                    <h3>联系我们</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-content">
+                                <h4>公司地址</h4>
+                                <p>上海市奉贤区东方美谷大道1699号<br>东方美谷韩国中心大厦</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-content">
+                                <h4>联系电话</h4>
+                                <p>021-1234-5678<br>400-888-9999</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-content">
+                                <h4>邮箱地址</h4>
+                                <p>info@dongfangmeigu.com<br>contact@koreancenter.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="qr-section">
+                    <h3>关注我们</h3>
+                    <div class="qr-codes">
+                        <div class="qr-item">
+                            <div class="qr-code"><img src="images/wechat-qr.jpg" alt="公众号二维码"></div>
+                            <p>微信公众号</p>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-code"><img src="images/wechat-qr.jpg" alt="微信群二维码"></div>
+                            <p>微信群</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 东方美谷韩国中心. 保留所有权利.</p>
+                <p>沪ICP备12345678号 | 沪公网安备31012000000000号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="news-detail.js"></script>
+</body>
+
+</html>
